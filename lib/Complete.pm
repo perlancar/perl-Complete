@@ -14,16 +14,6 @@ The namespace C<Complete::> is used for the family of modules that deal with
 completion (including, but not limited to, shell tab completion, tab completion
 feature in other CLI-based application, web autocomplete, etc).
 
-Many of the C<Complete::*> modules (like, e.g. L<Complete::Perl>,
-L<Complete::Module>, L<Complete::Unix>, L<Complete::Util>) contains
-C<complete_*()> functions. These functions are generic, "low-level" completion
-routines: they accept the word to be completed, zero or more other arguments,
-and return an arrayref containing possible completion from a specific source.
-They are not tied to any environment (shell, or web). They can even be used for
-general purposes outside the context of completion. Examples are:
-C<complete_file()> (complete from list of files in a specific directory),
-C<complete_env()> (complete from list of environment variables), and so on.
-
 C<Complete::Bash::*> modules are specific to bash shell. See L<Complete::Bash>
 on how to do bash tab completion with Perl.
 
@@ -36,6 +26,46 @@ on how to do fish tab completion with Perl.
 Compared to other modules, this (family of) module(s) tries to have a clear
 separation between general completion routine and shell-/environment specific
 ones, for more reusability.
+
+=head2 C<complete_*()> functions
+
+The main functions that do the actual completion are the C<complete_*()>
+functions. These functions are generic completion routines: they accept the word
+to be completed, zero or more other arguments, and mostly return an arrayref
+containing possible completion from a specific source. They are not tied to any
+environment (shell, or web). They can even be used for general purposes outside
+the context of completion. Examples are C<complete_file()> (complete from list
+of files in a specific directory), C<complete_env()> (complete from list of
+environment variables), and so on. An example:
+
+ use Complete::Util qw(complete_array_elem);
+ my $ary = complete_array_elem(array=>[qw/apple apricot banana/], word=>'ap');
+ # -> ['apple', 'apricot']
+
+More complex C<complete_*()> functions might return a I<hashref> instead of
+arrayref: it contains the completion reply (in the C<completion> keys) as well
+as other metadata like hints so the formatting function can properly display
+this to shell/etc. Example:
+
+ {completion=>[qw/$HOME $ENV/], type=>'env'}
+
+Given this data, C<Complete::Bash::format_completion()> will produce this:
+
+ $HOME
+ $ENV
+
+However, given one of these:
+
+ [qw/$HOME $ENV/]
+ {completion=>[qw/$HOME $ENV/], type=>'filename'}
+
+then C<format_completion()> will produce:
+
+ \$HOME
+ \$ENV
+
+the difference is the escaping backslash for the C<$> character. There are other
+hints available.
 
 
 =head1 DEVELOPER'S NOTES
