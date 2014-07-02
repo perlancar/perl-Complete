@@ -38,11 +38,46 @@ separation between general completion routine and shell-/environment specific
 ones, for more reusability.
 
 
+=head1 DEVELOPER'S NOTES
+
+B<Metadata>. C<complete_*()> currently returns array of string. In some
+environment like fish shell this does not provide enough metadata. In fish,
+aside from string, each completion alternative has some extra metadata. For
+example, when completing filenames, fish might show each possible completion
+filename with type (file/directory) and file size at the right of each file
+name. When completing options, it can also display a summary text for each
+option. So instead of an array of strings, in the future C<complete_*()> can
+also return an array of hashrefs:
+
+ ["word1", "word2", "word3"]
+
+versus:
+
+ [ {word=>"word1", ...},
+   {word=>"word2", ...},
+   {word=>"word3", ...}, ]
+
+C<Matching method>. Currently most C<complete_*()> routines match word using
+simple string prefix matching. fish also supports matching not by prefix only,
+but using wildcard. For example, if word if C<b??t> then C<bait> can be
+suggested as a possible completion. fish also supports fuzzy matching (e.g.
+C<house> can bring up C<horse> or C<hose>). There is also
+spelling-/auto-correction feature in some shells. This mode of matching can be
+added later in the various C<complete_*()> routines, turned on via a flag
+argument. Or there could be helper routines for this. In general this won't pose
+a problem to the API.
+
+C<Autosuggest>. fish supports autosuggestion (autocomplete). When user types,
+without she pressing Tab, the shell will suggest completion (not only for a
+single token, but possibly for the entire command). If the user wants to accept
+the suggestion, she can press the Right arrow key. This can be supported later
+by a function in L<Complete::Fish> e.g. C<shell_complete()> which accepts the
+command line string.
+
+
 =head1 SEE ALSO
 
-L<Bash::Completion>
-
-L<Getopt::Complete>
+L<Bash::Completion>, L<Getopt::Complete>, L<Term::Completion>
 
 L<Perinci::Sub::Complete> and C<Perinci::Sub::Complete::*> modules deal with
 providing completion capability for functions that have L<Rinci> metadata.
