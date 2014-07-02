@@ -57,7 +57,7 @@ versus:
    {word=>"word2", ...},
    {word=>"word3", ...}, ]
 
-C<Matching method>. Currently most C<complete_*()> routines match word using
+B<Matching method>. Currently most C<complete_*()> routines match word using
 simple string prefix matching. fish also supports matching not by prefix only,
 but using wildcard. For example, if word if C<b??t> then C<bait> can be
 suggested as a possible completion. fish also supports fuzzy matching (e.g.
@@ -67,7 +67,7 @@ added later in the various C<complete_*()> routines, turned on via a flag
 argument. Or there could be helper routines for this. In general this won't pose
 a problem to the API.
 
-C<Autosuggest>. fish supports autosuggestion (autocomplete). When user types,
+B<Autosuggest>. fish supports autosuggestion (autocomplete). When user types,
 without she pressing Tab, the shell will suggest completion (not only for a
 single token, but possibly for the entire command). If the user wants to accept
 the suggestion, she can press the Right arrow key. This can be supported later
