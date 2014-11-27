@@ -1,5 +1,18 @@
 Revision history for Complete
 
+0.04    2014-11-27 (PERLANCAR)
+
+        [INCOMPATIBLE CHANGES]
+
+        - Change key 'completion' in hashref-form of completion answer to
+          'words' to be more descriptive.
+
+        [OTHER]
+
+        - Revise POD: explain in more detail the completion answer structure,
+          remove Developer's Notes section.
+
+
 0.03    2014-07-02 (SHARYANTO)
 
         - Explain about hashref vs arrayref completion result.
