@@ -46,47 +46,67 @@ structure (see L</"Completion answer structure">).
 
 =head2 Completion answer structure
 
-C<complete_*()> functions can return an arrayref or hashref. An example of the
-arrayref form:
+C<complete_*()> functions return completion answer structure. Completion answer
+contains the completion entries as well as extra metadata to give hints to
+formatters/tools. It is a hashref which can contain the following keys:
 
- ['apple', 'apricot']
+=over
 
-That is, the completion answer is simply an array of words. However, each
-element can also be a hashref to give metadata to each entry, for example:
+=item * words => array
+
+This key is required. Its value is an array of completion entries. A completion
+entry can be a string or a hashref. Example:
+
+ ['apple', 'apricot'] # array of strings
 
  [{word=>'apple', summary=>'A delicious fruit with thousands of varieties'},
-  {word=>'apricot', summary=>'Another delicious fruit'},]
+  {word=>'apricot', summary=>'Another delicious fruit'},] # array of hashes
 
-The C<summary> can be used, e.g. by the fish shell which displays a description
-beside each completion. Or by other environments as they see fit. Other metadata
-can also be added to each entry's hashref.
+As you can see from the above, each entry can contain description (can be
+displayed in shells that support them, like fish and zsh).
 
-The second form of completion answer structure is hashref. It must contain the
-main key C<words> which is the same structure as the arrayref above. Aside from
-C<words>, the hashref can contain extra metadata which can give hints to the
-formatter on how to better format/display the answer: C<type>, C<path_sep>,
-C<escmode> etc (see L<Complete::Bash> for example on what hints it understands).
+=item * type => str
 
+See L<Complete::Bash>.
+
+=item * path_sep => str
+
+See L<Complete::Bash>.
+
+=item * escmode => str
+
+See L<Complete::Bash>.
+
+=item * static => bool
+
+Specify that completion is "static", meaning that it does not depend on external
+state (like filesystem) or a custom code which can return different answer
+everytime completion is requested.
+
+This can be useful for code that wants to generate completion code, like bash
+completion or fish completion. Knowing that completion for an option value is
+static means that completion for that option can be answered from an array
+instead of having to call code/program (faster).
+
+=back
+
+As a shortcut, completion answer can also be an arrayref (just the C<words>)
+without any metadata.
+
+Examples:
+
+ # hash form
  {words=>[qw/apple apricot/]}
+
+ # another hash form. type=env instructs formatter not to escape '$'
  {words=>[qw/$HOME $ENV/], type=>'env'}
 
-In the second example, C<Complete::Bash::format_completion()> can be instructed
-to produce the final result like this:
+ # array form
+ ['apple', 'apricot']
 
- $HOME
- $ENV
-
-However, given one of these:
-
- [qw/$HOME $ENV/]
- {words=>[qw/$HOME $ENV/], type=>'filename'}
-
-then C<format_completion()> will produce:
-
- \$HOME
- \$ENV
-
-the difference is the escaping backslash for the C<$> character.
+ # another array form, each entry is a hashref to include description
+ [{word=>'apple', summary=>'A delicious fruit with thousands of varieties'},
+  {word=>'apricot', summary=>'Another delicious fruit'},] # array of hashes
 
 
 =head1 SEE ALSO
