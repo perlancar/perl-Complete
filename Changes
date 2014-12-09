@@ -1,5 +1,11 @@
 Revision history for Complete
 
+0.05    2014-12-09 (PERLANCAR)
+
+	- [pod] Rewrite Completion answer structure, introduce key
+	  'static'.
+
+
 0.04    2014-11-27 (PERLANCAR)
 
         [INCOMPATIBLE CHANGES]
