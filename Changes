@@ -1,5 +1,10 @@
 Revision history for Complete
 
+0.06    2014-12-24 (PERLANCAR)
+
+	- Add settings, expand on convention for complete_*, minor rewrite.
+
+
 0.05    2014-12-09 (PERLANCAR)
 
 	- [pod] Rewrite Completion answer structure, introduce key
