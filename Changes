@@ -1,5 +1,11 @@
 Revision history for Complete
 
+0.07    2014-12-25 (PERLANCAR)
+
+	- Set default of OPT_EXP_IM_PATH to 0 due to potential annoying
+	  behavior in some cases.
+
+
 0.06    2014-12-24 (PERLANCAR)
 
 	- Add settings, expand on convention for complete_*, minor rewrite.
