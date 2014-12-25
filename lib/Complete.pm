@@ -9,7 +9,7 @@ use warnings;
 
 our $OPT_CI          = ($ENV{COMPLETE_OPT_CI}          // 1) ? 1:0;
 our $OPT_MAP_CASE    = ($ENV{COMPLETE_OPT_MAP_CASE}    // 1) ? 1:0;
-our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 1) ? 1:0;
+our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 0) ? 1:0;
 
 1;
 #ABSTRACT: Convention for Complete::* modules family and common settings
@@ -180,7 +180,7 @@ All L<Complete::Path>-based modules (like L<Complete::Util>'s
 C<complete_file()>), L<Complete::Module>, or L<Complete::Riap> respect this
 setting.
 
-=head2 C<$Complete::OPT_EXP_IM_PATH> => bool (default: from COMPLETE_OPT_EXP_IM_PATH or 1)
+=head2 C<$Complete::OPT_EXP_IM_PATH> => bool (default: from COMPLETE_OPT_EXP_IM_PATH or 0)
 
 Whether to "expand intermediate paths". What is meant by this is something like
 zsh: when you type something like C<cd /h/u/b/myscript> it can be completed to
@@ -189,6 +189,10 @@ C<cd /home/ujang/bin/myscript>.
 All L<Complete::Path>-based modules (like L<Complete::Util>'s
 C<complete_file()>), L<Complete::Module>, or L<Complete::Riap> respect this
 setting.
+
+Currently defaults to 0 because in the case of /foo/bar and /foo2/baz, when user
+type "/foo/b" bash will keep the user stuck at "/foo" because it is the shortest
+common substring. This is annoying.
 
 
 =head1 ENVIRONMENT
