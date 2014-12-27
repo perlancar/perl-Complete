@@ -1,5 +1,12 @@
 Revision history for Complete
 
+0.10    2014-12-27 (PERLANCAR)
+
+	- No functional changes.
+
+	- Double derp, forgot to set OPT_EXP_IM_PATH back to 1.
+
+
 0.09    2014-12-27 (PERLANCAR)
 
 	- No functional changes.
