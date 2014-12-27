@@ -10,6 +10,7 @@ use warnings;
 our $OPT_CI          = ($ENV{COMPLETE_OPT_CI}          // 1) ? 1:0;
 our $OPT_MAP_CASE    = ($ENV{COMPLETE_OPT_MAP_CASE}    // 1) ? 1:0;
 our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 0) ? 1:0;
+our $OPT_EXP_IM_PATH_MAX_LEN = ($ENV{COMPLETE_OPT_EXP_IM_PATH_MAX_LEN} // 2)+0;
 
 1;
 #ABSTRACT: Convention for Complete::* modules family and common settings
