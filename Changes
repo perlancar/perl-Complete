@@ -1,5 +1,12 @@
 Revision history for Complete
 
+0.08    2014-12-27 (PERLANCAR)
+
+	- Introduce setting: OPT_EXP_IM_PATH_MAX_LEN (defaults to 2) to
+	  work around potential annoyance described earlier, set
+	  OPT_EXP_IM_PATH default back to on.
+
+
 0.07    2014-12-25 (PERLANCAR)
 
 	- Set default of OPT_EXP_IM_PATH to 0 due to potential annoying
