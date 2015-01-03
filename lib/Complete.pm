@@ -252,11 +252,6 @@ Set default for C<$Complete::OPT_EXP_IM_PATH>.
 Set default for C<$Complete::OPT_EXP_IM_PATH_MAX_LEN>.
 
 
-=head1 TODO
-
-COMPLETE_OPT_MAX_RESULT?
-
-
 =head1 SEE ALSO
 
 =cut
