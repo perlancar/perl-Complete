@@ -188,7 +188,7 @@ zsh: when you type something like C<cd /h/u/b/myscript> it can be completed to
 C<cd /home/ujang/bin/myscript>.
 
 All L<Complete::Path>-based modules (like L<Complete::Util>'s
-C<complete_file()>), L<Complete::Module>, or L<Complete::Riap> respect this
+C<complete_file()>, L<Complete::Module>, or L<Complete::Riap>) respect this
 setting.
 
 =head2 C<$Complete::OPT_EXP_IM_PATH_MAX_LEN> => int (default: from COMPLETE_OPT_EXP_IM_PATH_MAX_LEN or 2)
