@@ -11,6 +11,7 @@ our $OPT_CI          = ($ENV{COMPLETE_OPT_CI}          // 1) ? 1:0;
 our $OPT_MAP_CASE    = ($ENV{COMPLETE_OPT_MAP_CASE}    // 1) ? 1:0;
 our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 1) ? 1:0;
 our $OPT_EXP_IM_PATH_MAX_LEN = ($ENV{COMPLETE_OPT_EXP_IM_PATH_MAX_LEN} // 2)+0;
+our $OPT_DIG_LEAF    = ($ENV{COMPLETE_OPT_DIG_LEAF}    // 1) ? 1:0;
 
 1;
 #ABSTRACT: Convention for Complete::* modules family and common settings
@@ -232,6 +233,23 @@ to write:
 
 which is usually fine.
 
+=head2 C<$Complete::OPT_DIG_LEAF> => bool (default: from COMPLETE_OPT_DIG_LEAF or 1)
+
+(Experimental) When enabled, this option mimics what's seen on GitHub. If a
+directory entry only contains a single subentry, it will directly show the
+subentry (and subsubentry and so on) to save a number of tab presses.
+
+Suppose you have files like this:
+
+ a
+ b/c/d/e
+ c
+
+If you complete for C<b> you will directly get C<b/c/d/e> (the leaf).
+
+This is currently experimental because if you want to complete only directories,
+you won't get b or b/c or b/c/d. Need to think how to solve this.
+
 
 =head1 ENVIRONMENT
 
@@ -250,6 +268,10 @@ Set default for C<$Complete::OPT_EXP_IM_PATH>.
 =head2 COMPLETE_OPT_EXP_IM_PATH_MAX_LEN => int
 
 Set default for C<$Complete::OPT_EXP_IM_PATH_MAX_LEN>.
+
+=head2 COMPLETE_OPT_DIG_LEAF => bool
+
+Set default for C<$Complete::OPT_DIG_LEAF>.
 
 
 =head1 SEE ALSO
