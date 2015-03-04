@@ -1,5 +1,11 @@
 Revision history for Complete
 
+0.12    2015-03-04 (PERLANCAR)
+
+	- Rename escmode to esc_mode for more consistent word separating
+	  style.
+
+
 0.11    2015-01-09 (PERLANCAR)
 
 	- Add experimental option: $OPT_DIG_LEAF.
