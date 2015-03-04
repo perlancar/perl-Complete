@@ -120,7 +120,7 @@ See L<Complete::Bash>.
 
 See L<Complete::Bash>.
 
-=item * escmode => str
+=item * esc_mode => str
 
 See L<Complete::Bash>.
 
