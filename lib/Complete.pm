@@ -68,7 +68,8 @@ lower-level functions, you can accept C<words> and C<cword> instead of C<word>,
 For example, in function C<Complete::Getopt::Long::complete_cli_arg>.
 
 Optional common arguments: C<ci> (bool, whether the matching should be
-case-insensitive, if unspecified should default to C<$Complete::OPT_CI>).
+case-insensitive, if unspecified should default to
+C<$Complete::Setting::OPT_CI>).
 
 Other arguments: you can define more arguments as you fit. Often there is at
 least one argument to specify or customize the source of completion, for example
