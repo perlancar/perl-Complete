@@ -11,7 +11,7 @@ our $OPT_CI          = ($ENV{COMPLETE_OPT_CI}          // 1) ? 1:0;
 our $OPT_FUZZY       = ($ENV{COMPLETE_OPT_FUZZY}       // 1)+0;
 our $OPT_MAP_CASE    = ($ENV{COMPLETE_OPT_MAP_CASE}    // 1) ? 1:0;
 our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 1) ? 1:0;
-our $OPT_EXP_IM_PATH_MAX_LEN = ($ENV{COMPLETE_OPT_EXP_IM_PATH_MAX_LEN} // 2)+0;
+our $OPT_EXP_IM_PATH_MAX_LEN = ($ENV{COMPLETE_OPT_EXP_IM_PATH_MAX_LEN} // 6)+0;
 our $OPT_DIG_LEAF    = ($ENV{COMPLETE_OPT_DIG_LEAF}    // 1) ? 1:0;
 
 1;
@@ -60,9 +60,9 @@ All L<Complete::Path>-based modules (like L<Complete::Util>'s
 C<complete_file()>, L<Complete::Module>, or L<Complete::Riap>) respect this
 setting.
 
-=head2 C<$Complete::Setting::OPT_EXP_IM_PATH_MAX_LEN> => int (default: from COMPLETE_OPT_EXP_IM_PATH_MAX_LEN or 2)
+=head2 C<$Complete::Setting::OPT_EXP_IM_PATH_MAX_LEN> => int (default: from COMPLETE_OPT_EXP_IM_PATH_MAX_LEN or 6)
 
-Wehn OPT_EXP_IM_PATH is active, because of the way bash does completion (it cuts
+When OPT_EXP_IM_PATH is active, because of the way bash does completion (it cuts
 current word to the shortest common denominator of all completion candidates),
 in some cases this can be annoying because it prevents completion to be done the
 way we want. For example:
