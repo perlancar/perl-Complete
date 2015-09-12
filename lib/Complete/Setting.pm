@@ -8,6 +8,7 @@ use strict;
 use warnings;
 
 our $OPT_CI          = ($ENV{COMPLETE_OPT_CI}          // 1) ? 1:0;
+our $OPT_FUZZY       = ($ENV{COMPLETE_OPT_FUZZY}       // 1)+0;
 our $OPT_MAP_CASE    = ($ENV{COMPLETE_OPT_MAP_CASE}    // 1) ? 1:0;
 our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 1) ? 1:0;
 our $OPT_EXP_IM_PATH_MAX_LEN = ($ENV{COMPLETE_OPT_EXP_IM_PATH_MAX_LEN} // 2)+0;
@@ -32,6 +33,11 @@ consulted as the default for all C<ci> arguments in the C<complete_*> functions.
 But users can override this setting by providing value to C<ci> argument.
 
 In bash/readline, this is akin to setting C<completion-ignore-case>.
+
+=head2 C<$Complete::Setting::OPT_FUZZY> => int (default: from COMPLETE_OPT_FUZZY or 1)
+
+Enable fuzzy matching. The greater the number, the greater the tolerance. To
+disable fuzzy matching, set to 0.
 
 =head2 C<$Complete::Setting::OPT_MAP_CASE> => bool (default: from COMPLETE_OPT_MAP_CASE or 1)
 
@@ -116,6 +122,10 @@ you won't get b or b/c or b/c/d. Need to think how to solve this.
 =head2 COMPLETE_OPT_CI => bool
 
 Set default for C<$Complete::Setting::OPT_CI>.
+
+=head2 COMPLETE_OPT_FUZZY => int
+
+Set default for C<$Complete::Setting::OPT_FUZZY>.
 
 =head2 COMPLETE_OPT_MAP_CASE => bool
 
