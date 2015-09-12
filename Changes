@@ -1,5 +1,13 @@
 Revision history for Complete
 
+0.15    2015-09-12 (PERLANCAR)
+
+	- Because Complete::Path has tweaked the way it does intermediate
+	  path expansion, we might not need OPT_EXP_IM_PATH_MAX_LEN
+	  anymore, for now I first test increasing this value first from 2
+	  to 6, later if things work out I might remove this option.
+
+
 0.14    2015-09-12 (PERLANCAR)
 
         - Setting: Introduce OPT_FUZZY for fuzzy matching.
