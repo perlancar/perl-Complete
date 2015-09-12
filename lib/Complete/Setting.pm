@@ -29,7 +29,7 @@ might change from release to release.
 =head2 C<$Complete::Setting::OPT_CI> => bool (default: from COMPLETE_OPT_CI or 1)
 
 If set to 1, matching is done case-insensitively. This setting should be
-consulted as the default for all C<ci> arguments in the C<complete_*> functions.
+consulted as the default for all C<ci> argument in the C<complete_*> functions.
 But users can override this setting by providing value to C<ci> argument.
 
 In bash/readline, this is akin to setting C<completion-ignore-case>.
@@ -37,7 +37,9 @@ In bash/readline, this is akin to setting C<completion-ignore-case>.
 =head2 C<$Complete::Setting::OPT_FUZZY> => int (default: from COMPLETE_OPT_FUZZY or 1)
 
 Enable fuzzy matching. The greater the number, the greater the tolerance. To
-disable fuzzy matching, set to 0.
+disable fuzzy matching, set to 0. This setting should be consulted for every
+C<fuzzy> argument in the C<complete_*> functions. But users can override this
+setting by providing value to C<fuzzy> argumnt.
 
 =head2 C<$Complete::Setting::OPT_MAP_CASE> => bool (default: from COMPLETE_OPT_MAP_CASE or 1)
 

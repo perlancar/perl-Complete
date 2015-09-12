@@ -1,5 +1,10 @@
 Revision history for Complete
 
+0.14    2015-09-12 (PERLANCAR)
+
+        - Setting: Introduce OPT_FUZZY for fuzzy matching.
+
+
 0.13    2015-09-09 (PERLANCAR)
 
 	- [Incompatible change] Move settings from Complete to
