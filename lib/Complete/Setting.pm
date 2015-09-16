@@ -11,7 +11,6 @@ our $OPT_CI          = ($ENV{COMPLETE_OPT_CI}          // 1) ? 1:0;
 our $OPT_FUZZY       = ($ENV{COMPLETE_OPT_FUZZY}       // 1)+0;
 our $OPT_MAP_CASE    = ($ENV{COMPLETE_OPT_MAP_CASE}    // 1) ? 1:0;
 our $OPT_EXP_IM_PATH = ($ENV{COMPLETE_OPT_EXP_IM_PATH} // 1) ? 1:0;
-our $OPT_EXP_IM_PATH_MAX_LEN = ($ENV{COMPLETE_OPT_EXP_IM_PATH_MAX_LEN} // 6)+0;
 our $OPT_DIG_LEAF    = ($ENV{COMPLETE_OPT_DIG_LEAF}    // 1) ? 1:0;
 
 1;
@@ -60,47 +59,6 @@ All L<Complete::Path>-based modules (like L<Complete::Util>'s
 C<complete_file()>, L<Complete::Module>, or L<Complete::Riap>) respect this
 setting.
 
-=head2 C<$Complete::Setting::OPT_EXP_IM_PATH_MAX_LEN> => int (default: from COMPLETE_OPT_EXP_IM_PATH_MAX_LEN or 6)
-
-When OPT_EXP_IM_PATH is active, because of the way bash does completion (it cuts
-current word to the shortest common denominator of all completion candidates),
-in some cases this can be annoying because it prevents completion to be done the
-way we want. For example:
-
- l/D/Zi/Plugi/Author<tab>
-
-if we have:
-
- lib/Dist/Zilla/Plugin/Author/
- lib/Dist/Zilla/PluginBundle/Author/
-
-the completion candidates are both the above, and bash cuts our word at the
-buffer to:
-
- lib/Dist/Zilla/Plugin
-
-even if we type C</> and then Tab like this:
-
- lib/Dist/Zilla/Plugin/<tab>
-
-bash will again cuts the buffer to become:
-
- lib/Dist/Zilla/Plugin
-
-To work around (or compromise around) this, the setting
-C<OPT_EXP_IM_PATH_MAX_LEN> is introduced. The default is 2. So if a path element
-is over 2 characters long, expand will not be done. This means in this path:
-
- l/D/Zi/Plugi/Author<tab>
-
-we expand C<l>, C<D>, C<Zi>, but not C<Plugi>. So to get expansion you'll have
-to write:
-
- l/D/Zi/P/Author<tab>
- l/D/Zi/Pl/Author<tab>
-
-which is usually fine.
-
 =head2 C<$Complete::Setting::OPT_DIG_LEAF> => bool (default: from COMPLETE_OPT_DIG_LEAF or 1)
 
 (Experimental) When enabled, this option mimics what's seen on GitHub. If a
@@ -136,10 +94,6 @@ Set default for C<$Complete::Setting::OPT_MAP_CASE>.
 =head2 COMPLETE_OPT_EXP_IM_PATH => bool
 
 Set default for C<$Complete::Setting::OPT_EXP_IM_PATH>.
-
-=head2 COMPLETE_OPT_EXP_IM_PATH_MAX_LEN => int
-
-Set default for C<$Complete::Setting::OPT_EXP_IM_PATH_MAX_LEN>.
 
 =head2 COMPLETE_OPT_DIG_LEAF => bool
 
