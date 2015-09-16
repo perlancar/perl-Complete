@@ -1,5 +1,10 @@
 Revision history for Complete
 
+0.16    2015-09-16 (PERLANCAR)
+
+        - [Removed] Remove setting OPT_EXP_IM_PATH_MAX_LEN.
+
+
 0.15    2015-09-12 (PERLANCAR)
 
 	- Because Complete::Path has tweaked the way it does intermediate
