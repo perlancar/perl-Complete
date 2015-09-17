@@ -45,9 +45,8 @@ setting by providing value to C<fuzzy> argumnt.
 This is exactly like C<completion-map-case> in readline/bash to treat C<_> and
 C<-> as the same when matching.
 
-All L<Complete::Path>-based modules (like L<Complete::Util>'s
-C<complete_file()>), L<Complete::Module>, or L<Complete::Riap> respect this
-setting.
+All L<Complete::Path>-based modules (like L<Complete::File>,
+L<Complete::Module>, or L<Complete::Riap> respect this setting).
 
 =head2 C<$Complete::Setting::OPT_EXP_IM_PATH> => bool (default: from COMPLETE_OPT_EXP_IM_PATH or 1)
 
