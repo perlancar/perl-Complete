@@ -46,7 +46,7 @@ This is exactly like C<completion-map-case> in readline/bash to treat C<_> and
 C<-> as the same when matching.
 
 All L<Complete::Path>-based modules (like L<Complete::File>,
-L<Complete::Module>, or L<Complete::Riap> respect this setting).
+L<Complete::Module>, or L<Complete::Riap>) respect this setting.
 
 =head2 C<$Complete::Setting::OPT_EXP_IM_PATH> => bool (default: from COMPLETE_OPT_EXP_IM_PATH or 1)
 
@@ -54,9 +54,8 @@ Whether to "expand intermediate paths". What is meant by this is something like
 zsh: when you type something like C<cd /h/u/b/myscript> it can be completed to
 C<cd /home/ujang/bin/myscript>.
 
-All L<Complete::Path>-based modules (like L<Complete::Util>'s
-C<complete_file()>, L<Complete::Module>, or L<Complete::Riap>) respect this
-setting.
+All L<Complete::Path>-based modules (like L<Complete::File>,
+L<Complete::Module>, or L<Complete::Riap>) respect this setting.
 
 =head2 C<$Complete::Setting::OPT_DIG_LEAF> => bool (default: from COMPLETE_OPT_DIG_LEAF or 1)
 
