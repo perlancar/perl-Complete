@@ -1,5 +1,11 @@
 Revision history for Complete
 
+0.17    2015-11-28 (PERLANCAR)
+
+        - Split Complete::Setting to Complete-Common so this distribution is now
+          pure specification.
+
+
 0.16    2015-09-16 (PERLANCAR)
 
         - [Removed] Remove setting OPT_EXP_IM_PATH_MAX_LEN.
