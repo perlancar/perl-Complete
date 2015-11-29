@@ -14,14 +14,14 @@ feature in other CLI-based application, web autocomplete, completion in GUI,
 etc). This (family of) modules try to have a clear separation between general
 completion routine and shell-/environment specific ones, for more reusability.
 
-This POD page gives an overview of the modules in C<Complete::*> namespace,
-establishes convention, and declares common settings.
+This POD page establishes convention and gives an overview of the modules in
+C<Complete::*>.
 
 =head2 Modules
 
-=head3 Common/shared settings
+=head3 Common/shared settings and other stuffs
 
-L<Complete::Setting>
+L<Complete::Common>
 
 =head3 Generic (non-environment-specific) modules
 
@@ -67,20 +67,16 @@ Required arguments: C<word> (the word to be completed). Sometimes, for
 lower-level functions, you can accept C<words> and C<cword> instead of C<word>,
 For example, in function C<Complete::Getopt::Long::complete_cli_arg>.
 
-Optional common arguments: C<ci> (bool, whether the matching should be
-case-insensitive, if unspecified should default to
-C<$Complete::Setting::OPT_CI>).
+You can define more arguments as you fit. Often there is at least one argument
+to specify or customize the source of completion, for example for the function
+C<Complete::Util::complete_array_elem> there is an C<array> argument to specify
+the source array.
 
-Other arguments: you can define more arguments as you fit. Often there is at
-least one argument to specify or customize the source of completion, for example
-for the function C<Complete::Util::complete_array_elem> there is an C<array>
-argument to specify the source array.
+=item * Follow behaviors specified in Complete::Common
 
 =item * Return completion answer structure
 
 See L</"Completion answer structure">.
-
-=item * Use defaults from global Complete::Setting, when applicable
 
 =back
 
