@@ -1,5 +1,13 @@
 Revision history for Complete
 
+0.18    2015-11-29 (PERLANCAR)
+
+	- Updates (Complete::Setting has been merged to Complete::Common,
+	  behavior/options like ci/fuzzy/etc now should not be a
+	  per-function argument but are global settings in
+	  Complete::Common).
+
+
 0.17    2015-11-28 (PERLANCAR)
 
         - Split Complete::Setting to Complete-Common so this distribution is now
