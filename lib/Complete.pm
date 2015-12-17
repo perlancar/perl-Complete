@@ -29,8 +29,8 @@ Modules usually are named after the type of completion answer they provide. For
 example: L<Complete::Unix> completes username/group name,
 L<Complete::Getopt::Long> completes from L<Getopt::Long> specification,
 L<Complete::Module> completes Perl module names, and so on. A current exception
-is L<Complete::Util> which contains several routines to complete from
-common/generic sources (array, hash, file, environment).
+is L<Complete::Util> which contains several generic routines, the main one is
+C<complete_array_elem()> which is used by most other completion routines.
 
 =head3 Environment-specific modules
 
@@ -72,7 +72,11 @@ to specify or customize the source of completion, for example for the function
 C<Complete::Util::complete_array_elem> there is an C<array> argument to specify
 the source array.
 
-=item * Follow behaviors specified in Complete::Common
+=item * Observe settings specified in L<Complete::Common>
+
+Example settings in Complete::Common include whether search should be
+case-insensitive, whether fuzzy searching should be done, etc. See the module's
+documentation for more details.
 
 =item * Return completion answer structure
 
