@@ -1,5 +1,12 @@
 Revision history for Complete
 
+0.19    2015-12-17 (PERLANCAR)
+
+	- No spec changes.
+
+	- Update documentation.
+
+
 0.18    2015-11-29 (PERLANCAR)
 
 	- Updates (Complete::Setting has been merged to Complete::Common,
