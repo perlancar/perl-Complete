@@ -67,10 +67,10 @@ Required arguments: C<word> (the word to be completed). Sometimes, for
 lower-level functions, you can accept C<words> and C<cword> instead of C<word>,
 For example, in function C<Complete::Getopt::Long::complete_cli_arg>.
 
-You can define more arguments as you fit. Often there is at least one argument
-to specify or customize the source of completion, for example for the function
-C<Complete::Util::complete_array_elem> there is an C<array> argument to specify
-the source array.
+You can define more arguments as you see fit. Often there is at least one
+argument to specify or customize the source of completion, for example for the
+function C<Complete::Util::complete_array_elem> there is an C<array> argument to
+specify the source array.
 
 =item * Observe settings specified in L<Complete::Common>
 
