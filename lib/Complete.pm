@@ -102,8 +102,24 @@ entry can be a string or a hashref. Example:
  [{word=>'apple', summary=>'A delicious fruit with thousands of varieties'},
   {word=>'apricot', summary=>'Another delicious fruit'},] # array of hashes
 
-As you can see from the above, each entry can contain description (can be
-displayed in shells that support them, like fish and zsh).
+As you can see from the above, each entry specify the B<word> and can also
+contain additional information: B<summary> (str, short one-line description, can
+be displayed e.g. in shells that support them, like fish and zsh), B<is_partial>
+(bool, specify whether this is a partial completion).
+
+ # example of digit-by-digit completion
+ [
+   {word=>'11', is_partial=>1},
+   {word=>'12', is_partial=>1},
+   ...
+   {word=>'19', is_partial=>1},
+ ],
+
+=item * is_partial => bool
+
+If set to true, specifies that the entries in B<words> are partial completion
+entries. This is equivalent to setting C<< is_partial => 1 >> to all the
+entries.
 
 =item * type => str
 
