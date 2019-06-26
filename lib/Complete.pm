@@ -92,10 +92,16 @@ formatters/tools. It is a hashref which can contain the following keys:
 
 =over
 
+=item * message => string
+
+Instead of returning completion entries, a completion answer can also opt to
+request showing a message (i.e. error message, or informational message) to the
+user.
+
 =item * words => array
 
-This key is required. Its value is an array of completion entries. A completion
-entry can be a string or a hashref. Example:
+Its value is an array of completion entries. A completion entry can be a string
+or a hashref. Example:
 
  ['apple', 'apricot'] # array of strings
 
