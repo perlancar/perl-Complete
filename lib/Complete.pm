@@ -94,9 +94,9 @@ formatters/tools. It is a hashref which can contain the following keys:
 
 =item * message => string
 
-Instead of returning completion entries, a completion answer can also opt to
-request showing a message (i.e. error message, or informational message) to the
-user.
+Experimental. Instead of returning completion entries, a completion answer can
+also opt to request showing a message (i.e. error message, or informational
+message) to the user.
 
 =item * words => array
 
