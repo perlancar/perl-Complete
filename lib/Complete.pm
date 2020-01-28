@@ -141,7 +141,7 @@ instead of having to call code/program (faster).
 
 =item * message => string
 
-Experimental. Instead of returning completion entries (C<words>), a completion
+Optional. Instead of returning completion entries (C<words>), a completion
 answer can also opt to request showing a message (i.e. error message, or
 informational message) to the user.
 
