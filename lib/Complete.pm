@@ -113,7 +113,7 @@ As you can see from the above, each entry specifies the B<word> and can also
 contain additional information: B<summary> (str, short one-line description
 about the entry, can be displayed alongside the entry), B<is_partial> (bool,
 specify whether this is a partial completion which means the word is not the
-full entry; currently this information is not yet used by other modules).
+full entry).
 
  # example of digit-by-digit completion
  [
@@ -128,8 +128,6 @@ full entry; currently this information is not yet used by other modules).
 Optional. If set to true, specifies that the entries in B<words> are partial
 completion entries. This is equivalent to setting C<< is_partial => 1 >> to all
 the entries.
-
-Currently this information is not yet used by other modules.
 
 =item * path_sep => str
 
