@@ -1,3 +1,25 @@
+0.202   2020-01-28  Released-By: PERLANCAR; Urgency: medium
+
+        - No longer mark the 'message' property as experimental.
+
+        - Mention that completion array structure or word entry is a
+          DefHash.
+
+        - Add explanation about 'path_sep' property (moved from
+          Complete::Bash).
+
+        - Note that implementations that want to observe additional information
+          should do it in x.NAME.WHATEVER, as per DefHash.
+
+        [Removed]
+
+        - Remove property 'type' from the specification; implementation
+          modules can observe their own properties.
+
+        - Remove property 'esc_mode' to avoid abstraction leak as this is
+          implementation detail.
+
+
 0.201   2019-06-26  Released-By: PERLANCAR
 
         - Introduce 'message' (experimental).
@@ -8,7 +30,7 @@
 	- Specify is_partial.
 
 
-0.19    2015-12-17  Released-By: PERLANCAR
+0.19    2015-12-17  Released-By: PERLANCAR; Urgency: low
 
 	- No spec changes.
 
