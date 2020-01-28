@@ -96,8 +96,8 @@ formatters/tools. It is a hashref which can contain the following keys:
 
 =item * words => array
 
-Its value is an array of completion entries. A completion entry can be a string
-or a hashref. Example:
+Required (unless C<message> is present). Its value is an array of completion
+entries. A completion entry can be a string or a hashref. Example:
 
  ['apple', 'apricot'] # array of strings
 
@@ -120,18 +120,39 @@ full entry; currently this information is not yet used by other modules).
 
 =item * is_partial => bool
 
-If set to true, specifies that the entries in B<words> are partial completion
-entries. This is equivalent to setting C<< is_partial => 1 >> to all the
-entries.
+Optional. If set to true, specifies that the entries in B<words> are partial
+completion entries. This is equivalent to setting C<< is_partial => 1 >> to all
+the entries.
 
 Currently this information is not yet used by other modules.
 
 =item * path_sep => str
 
+Optional. If set, express that the completion should be done in "path mode",
+useful for completing/drilling-down path.
+
+In shells like bash, for example, when completing filename (e.g. C<foo>) and
+there is only a single possible completion (e.g. C<foo> or C<foo.txt>), the
+shell will display the completion in the buffer and automatically add a space so
+the user can move to the next argument. This is also true when completing other
+values like variables or program names.
+
+However, when completing directory (e.g. C</et> or C<Downloads>) and there is
+solely a single completion possible and it is a directory (e.g. C</etc> or
+C<Downloads>), instead of adding a space, the shell will automatically add the
+path separator character (C</etc/> or C<Downloads/>). The user can press Tab
+again to complete for files/directories inside that directory, and so on. This
+is obviously more convenient compared to when shell adds a space instead.
+
+Path mode is not restricted to completing filesystem paths. Anything path-like
+can use it. For example when you are completing Java or Perl module name (e.g.
+C<com.company.product.whatever> or C<File::Spec::Unix>) you can use this mode
+(with C<path_sep> appropriately set to, e.g. C<.> or C<::>).
+
 =item * static => bool
 
-Specifies that completion is "static", meaning that it does not depend on
-external state (like filesystem) or a custom code which can return different
+Optional. Specifies that completion is "static", meaning that it does not depend
+on external state (like filesystem) or a custom code which can return different
 answer everytime completion is requested.
 
 This can be useful for code that wants to generate completion code, like bash
