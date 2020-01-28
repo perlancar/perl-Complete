@@ -171,6 +171,14 @@ informational message) to the user.
 
 =back
 
+Implementations that want to observe more information can do so in the
+C<x.NAME.WHATEVER> attribute, as per recommended by DefHash. For example:
+
+ {
+  words => ["foo", "bar"],
+  'x.bash.escape_dollar' => 1,
+ }
+
 =head3 Array form
 
 As a shortcut, completion answer can also be an arrayref (just the C<words>)
