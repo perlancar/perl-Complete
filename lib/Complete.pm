@@ -1,6 +1,8 @@
 package Complete;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 1;
@@ -106,7 +108,7 @@ As you can see from the above, each entry specifies the B<word> and can also
 contain additional information: B<summary> (str, short one-line description
 about the entry, can be displayed alongside the entry), B<is_partial> (bool,
 specify whether this is a partial completion which means the word is not the
-full entry).
+full entry; currently this information is not yet used by other modules).
 
  # example of digit-by-digit completion
  [
@@ -122,6 +124,8 @@ If set to true, specifies that the entries in B<words> are partial completion
 entries. This is equivalent to setting C<< is_partial => 1 >> to all the
 entries.
 
+Currently this information is not yet used by other modules.
+
 =item * type => str
 
 For now, see L<Complete::Bash> about the various types supported.
@@ -132,7 +136,7 @@ For now, see L<Complete::Bash>.
 
 =item * esc_mode => str
 
-For no, see L<Complete::Bash>.
+For now, see L<Complete::Bash>.
 
 =item * static => bool
 
@@ -147,9 +151,9 @@ instead of having to call code/program (faster).
 
 =item * message => string
 
-Experimental. Instead of returning completion entries, a completion answer can
-also opt to request showing a message (i.e. error message, or informational
-message) to the user.
+Experimental. Instead of returning completion entries (C<words>), a completion
+answer can also opt to request showing a message (i.e. error message, or
+informational message) to the user.
 
 =back
 
