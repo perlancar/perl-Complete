@@ -90,14 +90,19 @@ See L</"Completion answer structure">.
 
 C<complete_*()> functions return completion answer structure. This structure
 contains the completion entries as well as extra metadata to give hints to
-formatters/tools. It is a hashref which can contain the following keys:
+formatters/tools.
+
+=head3 Hash form
+
+It is a L<DefHash> which can contain the following keys:
 
 =over
 
-=item * words => array
+=item * words => array|hash
 
 Required (unless C<message> is present). Its value is an array of completion
-entries. A completion entry can be a string or a hashref. Example:
+entries. A completion entry can be a string or a hashref (a L<DefHash>).
+Example:
 
  ['apple', 'apricot'] # array of strings
 
@@ -167,6 +172,8 @@ answer can also opt to request showing a message (i.e. error message, or
 informational message) to the user.
 
 =back
+
+=head3 Array form
 
 As a shortcut, completion answer can also be an arrayref (just the C<words>)
 without any metadata.
