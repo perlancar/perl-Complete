@@ -134,10 +134,6 @@ For now, see L<Complete::Bash> about the various types supported.
 
 For now, see L<Complete::Bash>.
 
-=item * esc_mode => str
-
-For now, see L<Complete::Bash>.
-
 =item * static => bool
 
 Specifies that completion is "static", meaning that it does not depend on
