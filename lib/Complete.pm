@@ -126,13 +126,7 @@ entries.
 
 Currently this information is not yet used by other modules.
 
-=item * type => str
-
-For now, see L<Complete::Bash> about the various types supported.
-
 =item * path_sep => str
-
-For now, see L<Complete::Bash>.
 
 =item * static => bool
 
